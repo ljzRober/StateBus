@@ -2,12 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="annotation-core" />
-        <module name="MyJava" />
+        <module name="StateBus" />
         <module name="annotation-processor" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="annotation-core" target="1.8" />
       <module name="annotation-processor" target="1.8" />
       <module name="MyJava" target="1.8" />
+      <module name="StateBus" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

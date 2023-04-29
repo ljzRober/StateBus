@@ -1,4 +1,4 @@
-package com.ljz.bus.proxy;
+package com.ljz.java.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

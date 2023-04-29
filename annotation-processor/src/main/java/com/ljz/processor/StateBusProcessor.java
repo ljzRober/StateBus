@@ -25,7 +25,7 @@ public class StateBusProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "hello APT");
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "hello APT");
         processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, StateSubscribe.class.getCanonicalName());
         this.environment = processingEnv;
     }

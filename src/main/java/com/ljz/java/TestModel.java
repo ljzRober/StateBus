@@ -1,4 +1,4 @@
-package com.ljz.bus;
+package com.ljz.java;
 
 public class TestModel {
 

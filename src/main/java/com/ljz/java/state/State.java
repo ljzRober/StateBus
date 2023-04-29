@@ -1,4 +1,4 @@
-package com.ljz.bus.state;
+package com.ljz.java.state;
 
 import com.ljz.bus.StateObserver;
 

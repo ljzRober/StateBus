@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/annotation-processor/pom.xml" />
         <option value="$PROJECT_DIR$/annotation-core/pom.xml" />
+        <option value="$PROJECT_DIR$/StateBus/pom.xml" />
       </list>
     </option>
   </component>

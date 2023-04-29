@@ -1,7 +1,8 @@
-package com.ljz.bus;
+package com.ljz.java;
 
 import com.ljz.annotation.StateSubscribe;
-import com.ljz.bus.state.State;
+import com.ljz.bus.StateBus;
+import com.ljz.java.state.State;
 import com.sun.istack.internal.NotNull;
 
 public class Main {

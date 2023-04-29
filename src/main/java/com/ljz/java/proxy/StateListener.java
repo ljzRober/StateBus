@@ -1,4 +1,4 @@
-package com.ljz.bus.proxy;
+package com.ljz.java.proxy;
 
 public interface StateListener {
 

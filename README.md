@@ -28,7 +28,8 @@ StateBus.getDefault().by(State.class)
                 .post("state trigger");
 ```
 ## 后记
-这个项目是作为一个学习项目使用，主要是学习使用apt技术已经消息传递的设计思想。如果有人看到的话可以提出宝贵的意见。
+这个项目是作为一个学习项目使用，主要是学习使用apt技术已经消息传递的设计思想。
+如果有人看到的话可以提出宝贵的意见(顺便说一句maven真难用，如果要尝试apt建议使用gradle)。
 ## 参考文章
 * eventbus：https://github.com/greenrobot/EventBus
 * modular-event：https://tech.meituan.com/2018/12/20/modular-event.html
