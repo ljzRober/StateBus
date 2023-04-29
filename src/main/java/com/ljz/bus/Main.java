@@ -1,9 +1,8 @@
 package com.ljz.bus;
 
-import com.ljz.annotation.MySubscribe;
+import com.ljz.annotation.StateSubscribe;
 import com.ljz.bus.state.State;
 import com.sun.istack.internal.NotNull;
-import com.ljz.bus.proxy.JDKProxy;
 
 public class Main {
 
@@ -36,7 +35,7 @@ public class Main {
     }
 
 
-    @MySubscribe(classPath = State.class, methodName = "trigger")
+    @StateSubscribe(classPath = State.class, methodName = "trigger")
     public void StateListener(String state) {
         System.out.println(state);
     }

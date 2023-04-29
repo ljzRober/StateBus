@@ -3,7 +3,7 @@ package com.ljz.processor;
 import com.ljz.annotation.AbstractSubscribers;
 import com.ljz.annotation.StateConstants;
 import com.ljz.annotation.bean.SubscribeInfo;
-import com.ljz.annotation.MySubscribe;
+import com.ljz.annotation.StateSubscribe;
 import com.ljz.annotation.bean.SubscribeMethod;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.*;
@@ -26,7 +26,7 @@ public class StateBusProcessor extends AbstractProcessor {
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "hello APT");
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, MySubscribe.class.getCanonicalName());
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, StateSubscribe.class.getCanonicalName());
         this.environment = processingEnv;
     }
 
@@ -36,7 +36,7 @@ public class StateBusProcessor extends AbstractProcessor {
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         HashSet<String> hashSet = new HashSet<>();
-        hashSet.add(MySubscribe.class.getCanonicalName());
+        hashSet.add(StateSubscribe.class.getCanonicalName());
         System.out.println("execute process");
         return hashSet;
     }
@@ -56,7 +56,7 @@ public class StateBusProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         //拿到所有添加Print注解的成员变量
-        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(MySubscribe.class);
+        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(StateSubscribe.class);
         if (elements.isEmpty()) {
             return false;
         }
@@ -64,7 +64,7 @@ public class StateBusProcessor extends AbstractProcessor {
             if (element.getKind().equals(ElementKind.METHOD)) {
                 String subscriber = element.getSimpleName().toString();
                 ExecutableElement executableElement = (ExecutableElement) element;
-                MySubscribe annotation = executableElement.getAnnotation(MySubscribe.class);
+                StateSubscribe annotation = executableElement.getAnnotation(StateSubscribe.class);
                 String canonicalName = getClsName(annotation).canonicalName();
                 String methodName = annotation.methodName();
                 String state = canonicalName + "$" + methodName;
@@ -84,13 +84,13 @@ public class StateBusProcessor extends AbstractProcessor {
         return writeClassFile();
     }
 
-    private ClassName getClsName(MySubscribe mySubscribe) {
-        if (mySubscribe == null) {
+    private ClassName getClsName(StateSubscribe stateSubscribe) {
+        if (stateSubscribe == null) {
             return null;
         }
         ClassName className = null;
         try {
-            Class<?> classPath = mySubscribe.classPath();
+            Class<?> classPath = stateSubscribe.classPath();
             className = ClassName.get(classPath);
         } catch (MirroredTypeException e) {
             e.printStackTrace();
